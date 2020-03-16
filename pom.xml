@@ -22,5 +22,6 @@
 
     <modules>
         <module>oauth2-authorization-server</module>
+        <module>oauth2-jdbc-authorization-server</module>
     </modules>
 </project>
