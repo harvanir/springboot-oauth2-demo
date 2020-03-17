@@ -1,9 +1,8 @@
 create table users
 (
-    username  varchar(50)  not null primary key,
-    password  varchar(500) not null,
-    enabled   boolean      not null,
-    client_id varchar(256)
+    username varchar(50)  not null primary key,
+    password varchar(500) not null,
+    enabled  boolean      not null
 );
 create table authorities
 (

@@ -8,7 +8,7 @@
         <version>2.2.5.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>org.harvanir.jwt</groupId>
+    <groupId>org.harvanir.oauth2</groupId>
     <artifactId>springboot-oauth2-demo</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
@@ -23,5 +23,6 @@
     <modules>
         <module>oauth2-authorization-server</module>
         <module>oauth2-jdbc-authorization-server</module>
+        <module>oauth2-jdbc-resource-server</module>
     </modules>
 </project>

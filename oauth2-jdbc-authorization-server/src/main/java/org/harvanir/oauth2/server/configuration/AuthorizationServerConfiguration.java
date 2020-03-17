@@ -5,6 +5,7 @@ import org.harvanir.oauth2.server.oauth2.support.DefaultTokenStore;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -29,10 +30,18 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
     private final PasswordEncoder passwordEncoder;
 
-    public AuthorizationServerConfiguration(AuthenticationManager authenticationManager, DataSource dataSource, PasswordEncoder passwordEncoder) {
+    private final ApplicationProperties applicationProperties;
+
+    private final UserDetailsService userDetailsService;
+
+    public AuthorizationServerConfiguration(AuthenticationManager authenticationManager, DataSource dataSource,
+                                            PasswordEncoder passwordEncoder, ApplicationProperties applicationProperties,
+                                            UserDetailsService userDetailsService) {
         this.authenticationManager = authenticationManager;
         this.dataSource = dataSource;
         this.passwordEncoder = passwordEncoder;
+        this.applicationProperties = applicationProperties;
+        this.userDetailsService = userDetailsService;
     }
 
     @Override
@@ -49,11 +58,12 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     public void configure(AuthorizationServerEndpointsConfigurer authorizationServerEndpointsConfigurer) {
         authorizationServerEndpointsConfigurer
                 .tokenStore(tokenStore())
-                .authenticationManager(authenticationManager);
+                .authenticationManager(authenticationManager)
+                .userDetailsService(userDetailsService);
     }
 
     private ClientDetailsService clientDetailsService() {
-        DefaultClientDetailService clientDetailService = new DefaultClientDetailService(dataSource);
+        DefaultClientDetailService clientDetailService = new DefaultClientDetailService(dataSource, applicationProperties.getCache().getClient());
         clientDetailService.setPasswordEncoder(passwordEncoder);
 
         return clientDetailService;

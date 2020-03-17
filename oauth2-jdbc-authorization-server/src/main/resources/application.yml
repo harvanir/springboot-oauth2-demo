@@ -36,9 +36,19 @@ spring:
 logging:
   level:
     org:
+      harvanir:
+        oauth2: debug
       springframework:
         security: debug
         jdbc:
           core: debug
       hibernate:
         type: debug
+application:
+  cache:
+    client:
+      maximum-size: 10
+      expired-after-second: 120
+    user:
+      maximum-size: 100
+      expired-after-second: 30

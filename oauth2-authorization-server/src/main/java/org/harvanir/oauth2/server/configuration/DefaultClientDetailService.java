@@ -37,8 +37,8 @@ public class DefaultClientDetailService implements ClientDetailsService {
 
         ClientDetailsDao() {
             BaseClientDetails clientDetails = new BaseClientDetails();
-            clientDetails.setClientId("clientId");
-            clientDetails.setClientSecret("{noop}secret");
+            clientDetails.setClientId("12345");
+            clientDetails.setClientSecret("{noop}password");
             clientDetails.setAuthorizedGrantTypes(Arrays.asList("password", "authorization_code", "refresh_token"));
             clientDetails.setScope(Arrays.asList("read", "write", "trust"));
             clientDetails.setAccessTokenValiditySeconds(-1); // valid forever
