@@ -1,4 +1,4 @@
-package org.harvanir.oauth2.server.oauth2.support;
+package org.harvanir.oauth2.server.support;
 
 import org.springframework.security.oauth2.provider.token.AuthenticationKeyGenerator;
 import org.springframework.security.oauth2.provider.token.DefaultAuthenticationKeyGenerator;

@@ -1,7 +1,7 @@
 package org.harvanir.oauth2.server.configuration;
 
-import org.harvanir.oauth2.server.oauth2.support.DefaultClientDetailService;
-import org.harvanir.oauth2.server.oauth2.support.DefaultTokenStore;
+import org.harvanir.oauth2.server.support.DefaultClientDetailService;
+import org.harvanir.oauth2.server.support.DefaultTokenStore;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

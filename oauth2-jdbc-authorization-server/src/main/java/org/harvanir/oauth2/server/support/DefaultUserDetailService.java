@@ -1,4 +1,4 @@
-package org.harvanir.oauth2.server.oauth2.support;
+package org.harvanir.oauth2.server.support;
 
 import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
 

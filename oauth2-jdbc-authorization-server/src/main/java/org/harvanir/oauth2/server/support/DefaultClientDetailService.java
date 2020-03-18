@@ -1,4 +1,4 @@
-package org.harvanir.oauth2.server.oauth2.support;
+package org.harvanir.oauth2.server.support;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
