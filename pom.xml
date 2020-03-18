@@ -23,6 +23,6 @@
     <modules>
         <module>oauth2-authorization-server</module>
         <module>oauth2-jdbc-authorization-server</module>
-        <module>oauth2-jdbc-resource-server</module>
+        <module>oauth2-resource-server</module>
     </modules>
 </project>

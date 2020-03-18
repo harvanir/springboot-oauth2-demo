@@ -1,0 +1,17 @@
+server:
+  port: 9393
+logging:
+  level:
+    org:
+      harvanir:
+        oauth2: debug
+      springframework:
+        security: debug
+        jdbc:
+          core: debug
+      hibernate:
+        type: debug
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:9292/profile/info # see org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties
