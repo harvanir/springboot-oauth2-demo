@@ -73,6 +73,6 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
     @Bean
     public TokenStore tokenStore() {
-        return new DefaultTokenStore(dataSource);
+        return new DefaultTokenStore(dataSource, applicationProperties.getCache().getToken());
     }
 }

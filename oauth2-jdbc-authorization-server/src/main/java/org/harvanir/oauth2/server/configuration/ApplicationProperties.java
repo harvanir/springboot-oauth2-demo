@@ -21,6 +21,8 @@ public class ApplicationProperties {
         private Client client = new Client();
 
         private User user = new User();
+
+        private Token token = new Token();
     }
 
     @Getter
@@ -41,6 +43,12 @@ public class ApplicationProperties {
     @Getter
     @Setter
     public static class User extends BaseCache {
+
+    }
+
+    @Getter
+    @Setter
+    public static class Token extends BaseCache {
 
     }
 }
