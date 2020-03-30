@@ -1,5 +1,5 @@
 create table oauth_code
 (
-    code           VARCHAR(256) PRIMARY KEY,
+    code           varchar(256) primary key,
     authentication bytea
 );

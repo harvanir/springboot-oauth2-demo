@@ -11,5 +11,7 @@ public class DefaultUserDetailService extends JdbcDaoImpl {
 
     public DefaultUserDetailService(DataSource dataSource) {
         setDataSource(dataSource);
+        setEnableAuthorities(true);
+        setEnableGroups(true);
     }
 }

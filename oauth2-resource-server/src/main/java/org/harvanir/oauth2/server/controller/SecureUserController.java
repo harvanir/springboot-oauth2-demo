@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author Harvan Irsyadi
@@ -16,8 +18,20 @@ import java.security.Principal;
 public class SecureUserController {
 
     @GetMapping("/info")
-    @PreAuthorize("hasRole('ROLE_CLIENT')")
+    @PreAuthorize("hasAnyRole('ROLE_CLIENT', 'ROLE_ADMIN')")
     public ResponseEntity<Principal> info(Principal principal) {
         return ResponseEntity.ok(principal);
+    }
+
+    @GetMapping("/info/authorities")
+    @PreAuthorize("hasAuthority('READ_AUTHORITIES')")
+    public ResponseEntity<List<String>> readAuthorities() {
+        return ResponseEntity.ok(Arrays.asList("ROLE_ADMIN", "ROLE_CLIENT", "READ_AUTHORITIES", "READ_NAME"));
+    }
+
+    @GetMapping("/info/name")
+    @PreAuthorize("hasAuthority('READ_NAME')")
+    public ResponseEntity<String> readName(Principal principal) {
+        return ResponseEntity.ok(principal.getName());
     }
 }
