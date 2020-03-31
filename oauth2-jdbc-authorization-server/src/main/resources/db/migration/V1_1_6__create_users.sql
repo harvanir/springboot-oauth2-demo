@@ -5,7 +5,7 @@ create table users
     enabled  boolean      not null
 );
 
-create table authorities
+create table user_roles
 (
     username  varchar(50) not null,
     authority varchar(50) not null,
